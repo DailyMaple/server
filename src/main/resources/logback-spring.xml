@@ -1,14 +1,27 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<taglib xmlns="http://java.sun.com/xml/ns/javaee"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
-        version="2.1">
+<configuration>
+    <timestamp key="BY_DATE" datePattern="yyyy-MM-dd"/>
+    <property name="LOG_PATTERN"
+              value="[%d{yyyy-MM-dd HH:mm:ss}:%-4relative] %green([%thread]) %highlight(%-5level) %boldWhite([%C.%M:%yellow(%L)]) - %msg%n"/>
 
-    <tlib-version>1.0</tlib-version>
-    <short-name>myshortname</short-name>
-    <uri>http://mycompany.com</uri>
+    <springProfile name="!prod">
+        <include resource="console-appender.xml"/>
 
-    <!-- Invoke 'Generate' action to add tags or functions -->
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
 
-</taglib>
+    <springProfile name="prod">
+        <include resource="error-file-appender.xml"/>
+        <include resource="info-file-appender.xml"/>
+        <include resource="warn-file-appender.xml"/>
+
+        <root level="INFO">
+            <appender-ref ref="FILE-INFO"/>
+            <appender-ref ref="FILE-WARN"/>
+            <appender-ref ref="FILE-ERROR"/>
+        </root>
+    </springProfile>
+</configuration>
