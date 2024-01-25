@@ -14,4 +14,8 @@ public class Character {
 
     @Column(name = "character_ocid")
     String characterId;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
 }
