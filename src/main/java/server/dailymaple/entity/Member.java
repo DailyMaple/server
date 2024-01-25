@@ -18,5 +18,8 @@ public class Member {
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Character> characteList = new ArrayList<>();
 
+    String accountId;
+
+    String password;
 
 }
