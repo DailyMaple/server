@@ -5,15 +5,16 @@ import lombok.Getter;
 
 @Getter
 @Entity
+@Table(name = "member")
 public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    Long id;
+    private Long id;
 
-    String accountId;
+    private String accountId;
 
-    String password;
+    private String password;
 
 }
