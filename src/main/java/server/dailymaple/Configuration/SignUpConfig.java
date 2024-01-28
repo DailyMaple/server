@@ -6,15 +6,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class LoginConfig {
+public class SignUpConfig {
 
     @Bean
     public GroupedOpenApi getLoginApi() {
         return GroupedOpenApi.builder()
-                .group("Login")
-                .pathsToMatch("/login/**")
+                .group("SignUp")
+                .pathsToMatch("/signup/**")
                 .pathsToExclude("")
-                .packagesToScan("java.server.dailymaple.controller")
+                .packagesToScan("server.dailymaple.controller")
                 .build();
     }
 }
