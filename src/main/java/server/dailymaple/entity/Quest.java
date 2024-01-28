@@ -3,11 +3,12 @@ package server.dailymaple.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import server.dailymaple.constant.QuestTag;
+import server.dailymaple.utils.BaseTimeEntity;
 
 @Getter
 @Entity
 @Table(name = "quest")
-public class Quest {
+public class Quest extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
