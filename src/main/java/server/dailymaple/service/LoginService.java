@@ -18,7 +18,7 @@ public class LoginService {
         return member.getId();
     }
 
-    public void validId(String accountId){
-
+    public boolean checkIdExist(MemberDto memberDto){
+        return memberRepository.existsByAccountId(memberDto.accountId());
     }
 }
