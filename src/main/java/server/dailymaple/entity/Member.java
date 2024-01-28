@@ -1,23 +1,33 @@
 package server.dailymaple.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 import server.dailymaple.utils.BaseTimeEntity;
 
 @Getter
 @Entity
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @Table(name = "member")
 public class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long id;
+    Long id;
 
-    private String accountId;
+    String accountId;
 
-    private String password;
+    String password;
 
-    private boolean deleted;
+    boolean deleted;
 
+    public static Member createMember(String accountId, String encodedPassword) {
+        Member member = new Member();
+        member.accountId = accountId;
+        member.password = encodedPassword;
+        member.deleted = false;
+        return member;
+    }
 }
