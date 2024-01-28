@@ -3,17 +3,18 @@ package server.dailymaple.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+
 @Getter
 @Entity
 public class Character {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "character_id")
+    @Column
     Long id;
 
-    @Column(name = "character_ocid")
-    String characterId;
+    @Column
+    String characterIdentifier;
 
     @ManyToOne
     @JoinColumn(name = "member_id")
