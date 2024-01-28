@@ -6,15 +6,16 @@ import lombok.Getter;
 
 @Getter
 @Entity
-public class Character {
+@Table(name = "profile")
+public class Profile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    Long id;
+    private Long id;
 
     @Column
-    String characterIdentifier;
+    private String profileIdentifier;
 
     @ManyToOne
     @JoinColumn(name = "member_id")
