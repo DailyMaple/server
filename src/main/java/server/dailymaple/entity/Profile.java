@@ -18,6 +18,8 @@ public class Profile extends BaseTimeEntity {
     @Column
     private String profileIdentifier;
 
+    private boolean deleted;
+
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;

@@ -25,6 +25,8 @@ public class Quest extends BaseTimeEntity {
     @Column
     private Boolean executionStatus;
 
+    private boolean deleted;
+
     @ManyToOne
     @JoinColumn(name = "profile_id")
     private Profile profile;

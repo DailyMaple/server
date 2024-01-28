@@ -18,4 +18,6 @@ public class Member extends BaseTimeEntity {
 
     private String password;
 
+    private boolean deleted;
+
 }
