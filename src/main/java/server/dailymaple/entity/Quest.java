@@ -10,16 +10,20 @@ public class Quest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "quest_id")
+    @Column
     Long Id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "quest_tag")
+    @Column
     private QuestTag questTag;
 
-    @Column(name = "quest_name")
+    @Column
     String name;
 
-    @Column(name = "execution_status")
+    @Column
     Boolean executionStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "character_id")
+    private Character character;
 }
