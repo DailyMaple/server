@@ -16,6 +16,6 @@ public class SignUpController {
 
     @PostMapping("")
     public Long signUp(@RequestBody MemberDto memberDto){
-        return loginService.signUp(memberDto.accountId(), memberDto.password());
+        return loginService.signUp(memberDto);
     }
 }
