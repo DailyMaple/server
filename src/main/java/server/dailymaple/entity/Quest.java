@@ -6,24 +6,25 @@ import server.dailymaple.constant.QuestTag;
 
 @Getter
 @Entity
+@Table(name = "quest")
 public class Quest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    Long Id;
+    private Long Id;
 
     @Enumerated(EnumType.STRING)
     @Column
     private QuestTag questTag;
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    Boolean executionStatus;
+    private Boolean executionStatus;
 
     @ManyToOne
-    @JoinColumn(name = "character_id")
-    private Character character;
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
 }
