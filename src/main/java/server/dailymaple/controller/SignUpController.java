@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import server.dailymaple.dto.AccountIdResponse;
 import server.dailymaple.dto.MemberDto;
 import server.dailymaple.service.LoginService;
 
@@ -22,7 +23,7 @@ public class SignUpController {
 
     @Operation(summary = "아이디 중복확인", description = "중복여부에 따라 Boolean타입으로 반환한다.")
     @GetMapping("")
-    public Boolean checkIdExist(@RequestBody MemberDto memberDto){
-        return loginService.checkIdExist(memberDto);
+    public Boolean checkIdExist(@RequestBody AccountIdResponse accountIdResponse){
+        return loginService.checkIdExist(accountIdResponse);
     }
 }

@@ -2,6 +2,7 @@ package server.dailymaple.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import server.dailymaple.dto.AccountIdResponse;
 import server.dailymaple.dto.MemberDto;
 import server.dailymaple.entity.Member;
 import server.dailymaple.repository.MemberRepository;
@@ -18,7 +19,7 @@ public class LoginService {
         return member.getId();
     }
 
-    public boolean checkIdExist(MemberDto memberDto){
-        return memberRepository.existsByAccountId(memberDto.accountId());
+    public boolean checkIdExist(AccountIdResponse accountIdResponse){
+        return memberRepository.existsByAccountId(accountIdResponse.accountId());
     }
 }
