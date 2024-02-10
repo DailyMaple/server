@@ -11,14 +11,14 @@ import server.dailymaple.repository.MemberRepository;
 public class LoginService {
     private final MemberRepository memberRepository;
 
-    public Long signUp(String accountId, String password){
+    public Long signUp(MemberDto memberDto){
         //ToDo 페스워드 암호화
-        Member member = Member.createMember(accountId,password);
+        Member member = Member.createMember(memberDto.accountId(),memberDto.password());
         memberRepository.save(member);
         return member.getId();
     }
 
-    public void validId(String accountId){
-
+    public boolean checkIdExist(MemberDto memberDto){
+        return memberRepository.existsByAccountId(memberDto.accountId());
     }
 }
