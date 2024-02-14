@@ -26,7 +26,7 @@ public class SignUpController {
         return loginService.checkIdExist(memberDto);
     }
 
-    @Operation(summary = "자동배포 테스트용", description = "요건 테스트지")
+    @Operation(summary = "자동배포 테스트용", description = "요건 테스트지123")
     @GetMapping("/abc")
     public String test(@RequestBody MemberDto memberDto){
         return "123";
