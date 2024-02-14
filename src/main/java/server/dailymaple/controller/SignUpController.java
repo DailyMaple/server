@@ -25,4 +25,10 @@ public class SignUpController {
     public Boolean checkIdExist(@RequestBody MemberDto memberDto){
         return loginService.checkIdExist(memberDto);
     }
+
+    @Operation(summary = "자동배포 테스트용")
+    @GetMapping("")
+    public String test(@RequestBody MemberDto memberDto){
+        return "123";
+    }
 }
