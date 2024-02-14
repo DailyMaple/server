@@ -60,7 +60,7 @@ jobs:
           script: |
             cd /home/ubuntu/dailymaple/dev
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-            docker rm $(docker ps -a -q)
+            docker rm -f $(docker ps -qa)
             docker rmi ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_PROD_REPO }}
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_PROD_REPO }}:latest
             docker-compose up -d
