@@ -32,7 +32,7 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          ./gradlew daily-maple:build
+          ./gradlew build
         
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
