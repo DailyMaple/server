@@ -6,4 +6,5 @@ spring:
         format_sql: false
     hibernate:
       ddl-auto: create
+      dialect: org.hibernate.dialect.MySQLDialect
     open-in-view: false
