@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:mysql://13.209.150.31:3306/dm
+    username: root
+    password: rootroot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+springdoc:
+    swagger-ui:
+      path: api
+      tags-sorter: alpha
+      operations-sorter: alpha
+    paths-to-match:
+      - /**
+
+
+server:
+  port: 8080
