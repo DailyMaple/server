@@ -2,10 +2,11 @@ spring:
   profiles:
     active: local
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://13.209.150.31:3306/dm
     username: root
     password: rootroot
-    driver-class-name: com.mysql.cj.jdbc.Driver
+
 springdoc:
     swagger-ui:
       path: api
