@@ -4,15 +4,16 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import server.dailymaple.dto.AccountIdResponse;
 import server.dailymaple.dto.MemberDto;
-import server.dailymaple.service.LoginService;
+import server.dailymaple.service.SignUpService;
 
-@Tag(name = "Login", description = "Login Api")
+@Tag(name = "SignUp", description = "SignUp Api")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/signup")
 public class SignUpController {
-    private final LoginService loginService;
+    private final SignUpService loginService;
 
     @Operation(summary = "회원가입", description = "아아디와 비밀번호를 json타입으로 담아서 전달받으면 회원가입이 된다.")
     @PostMapping("")
@@ -21,14 +22,9 @@ public class SignUpController {
     }
 
     @Operation(summary = "아이디 중복확인", description = "중복여부에 따라 Boolean타입으로 반환한다.")
-    @GetMapping("")
-    public Boolean checkIdExist(@RequestBody MemberDto memberDto){
-        return loginService.checkIdExist(memberDto);
+    @GetMapping("/{accountId}")
+    public Boolean checkIdExist(@PathVariable String accountId){
+        return loginService.checkIdExist(accountId);
     }
 
-    @Operation(summary = "자동배포 테스트용", description = "요건 테스트지1")
-    @GetMapping("/abc")
-    public String test(@RequestBody MemberDto memberDto){
-        return "123";
-    }
 }
