@@ -3,9 +3,7 @@ package server.dailymaple.utils.exception;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 
-@Builder(toBuilder = true)
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public record ErrorResponse(
         Integer status,
         String error,
