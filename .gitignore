@@ -32,7 +32,13 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
+.DS_Store
 
 ### VS Code ###
 .vscode/
 *.log
+
+
+### yml ###
+./src/main/resources/application-local.yml
+application-local*.yml
