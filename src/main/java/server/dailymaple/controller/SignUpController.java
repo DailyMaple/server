@@ -22,9 +22,9 @@ public class SignUpController {
     }
 
     @Operation(summary = "아이디 중복확인", description = "중복여부에 따라 Boolean타입으로 반환한다.")
-    @GetMapping("")
-    public Boolean checkIdExist(@RequestBody AccountIdResponse accountIdResponse){
-        return loginService.checkIdExist(accountIdResponse);
+    @GetMapping("/{accountId}")
+    public Boolean checkIdExist(@PathVariable String accountId){
+        return loginService.checkIdExist(accountId);
     }
 
 }
