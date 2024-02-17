@@ -6,14 +6,14 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import server.dailymaple.dto.AccountIdResponse;
 import server.dailymaple.dto.MemberDto;
-import server.dailymaple.service.LoginService;
+import server.dailymaple.service.SignUpService;
 
-@Tag(name = "Login", description = "Login Api")
+@Tag(name = "SignUp", description = "SignUp Api")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/signup")
 public class SignUpController {
-    private final LoginService loginService;
+    private final SignUpService loginService;
 
     @Operation(summary = "회원가입", description = "아아디와 비밀번호를 json타입으로 담아서 전달받으면 회원가입이 된다.")
     @PostMapping("")
@@ -27,9 +27,4 @@ public class SignUpController {
         return loginService.checkIdExist(accountIdResponse);
     }
 
-    @Operation(summary = "자동배포 테스트용", description = "요건 테스트지1")
-    @GetMapping("/abc")
-    public String test(@RequestBody MemberDto memberDto){
-        return "123";
-    }
 }
