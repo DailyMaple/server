@@ -20,18 +20,14 @@ public class LoginService {
 
     public Long checkValidPassword(LoginResponseDto loginResponseDto){
         Member member = memberRepository.findByAccountId(loginResponseDto.accountId());
-        try {
-            if(member.getPassword().equals(loginResponseDto.password())){
-                return member.getId();
-            };
-        }
-        catch (BaseException e){
-            throw e;
-        }
+        if(!member.getPassword().equals(loginResponseDto.password())){
+            throw new BaseException(BaseExceptionCode.INVALID_PASSWORD.getHttpStatus(),BaseExceptionCode.INVALID_PASSWORD.getMessage());
+        };
+        return member.getId();
     }
 
     public boolean checkValidAccountId(LoginResponseDto loginResponseDto) {
-            if (memberRepository.existsByAccountId(loginResponseDto.accountId())){
+            if (!memberRepository.existsByAccountId(loginResponseDto.accountId())){
                 throw new BaseException(BaseExceptionCode.INVALID_USER.getHttpStatus(),BaseExceptionCode.INVALID_USER.getMessage());
             }
             return true;
