@@ -10,5 +10,12 @@ springdoc:
     paths-to-match:
       - /**
 
+security:
+  jwt:
+    token:
+      secret-key: ${SECRET_KEY}
+      expire-length: ${EXPIRE_LENGTH}
+
+
 server:
   port: 8080
