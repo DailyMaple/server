@@ -14,7 +14,7 @@ public class SignUpService {
 
     public Long signUp(MemberDto memberDto){
         //ToDo 페스워드 암호화
-        Member member = Member.createMember(memberDto.accountId(),memberDto.password());
+        Member member = Member.createMember(memberDto.accountId(),memberDto.password(),memberDto.type());
         memberRepository.save(member);
         return member.getId();
     }
