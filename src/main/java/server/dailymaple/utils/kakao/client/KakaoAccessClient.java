@@ -5,6 +5,7 @@ import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PostExchange;
 import server.dailymaple.utils.kakao.constants.KakaoOauthConstants;
 import server.dailymaple.utils.kakao.dto.KakaoIdResponse;
+import server.dailymaple.utils.kakao.dto.KakaoInfoResponse;
 
 @HttpExchange(KakaoOauthConstants.KAKAO_URL)
 public interface KakaoAccessClient {
