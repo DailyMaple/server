@@ -1,10 +1,12 @@
 package server.dailymaple.utils.kakao.service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import server.dailymaple.constant.LoginType;
 import server.dailymaple.dto.LoginRequest;
 import server.dailymaple.dto.MemberDto;
 import server.dailymaple.entity.Member;
+import server.dailymaple.repository.MemberRepository;
 import server.dailymaple.service.OauthProvider;
 import server.dailymaple.service.SignUpService;
 import server.dailymaple.utils.kakao.client.KakaoAccessClient;
@@ -12,9 +14,10 @@ import server.dailymaple.utils.kakao.dto.KakaoIdResponse;
 import server.dailymaple.utils.kakao.dto.KakaoInfoResponse;
 
 @AllArgsConstructor
+@Service
 public class  KakaoOauthProvider implements OauthProvider<KakaoIdResponse, KakaoInfoResponse> {
     private final KakaoAccessClient client;
-    private final SignUpService service;
+    private final MemberRepository repository;
 
     @Override
     public KakaoIdResponse getUserId(LoginRequest loginRequest) {
@@ -29,11 +32,12 @@ public class  KakaoOauthProvider implements OauthProvider<KakaoIdResponse, Kakao
     @Override
     public Long signUp(LoginRequest loginRequest) {
         KakaoInfoResponse savedInfo = getUserInfo(loginRequest);
-        MemberDto newMember = MemberDto.builder()
+        Member newMember = Member.builder()
                 .accountId(savedInfo.id())
                 .deleted(false)
                 .type(LoginType.KAKAO)
                 .build();
-        return service.signUp(newMember);
+        repository.save(newMember);
+        return newMember.getId();
     }
 }
