@@ -1,7 +1,7 @@
-package server.dailymaple.utils.kakao.dto;
+package server.dailymaple.oauth.service.dto;
 
 
-public record KakaoAuthorizationCode(
+public record KakaoAuthorizationResponse(
         String code,
         String error,
         String error_description,
