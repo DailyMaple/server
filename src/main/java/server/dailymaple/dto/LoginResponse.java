@@ -2,7 +2,11 @@ package server.dailymaple.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
+@Builder
 @Schema(title = "JWT accessToken")
 public record LoginResponse(
         @Schema(

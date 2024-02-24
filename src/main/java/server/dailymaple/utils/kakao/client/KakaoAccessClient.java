@@ -10,12 +10,12 @@ import server.dailymaple.utils.kakao.dto.KakaoInfoResponse;
 @HttpExchange(KakaoOauthConstants.KAKAO_URL)
 public interface KakaoAccessClient {
     @PostExchange(KakaoOauthConstants.KAKAO_USER_INFO)
-    public KakaoIdResponse getKakaoUserId(
+    KakaoIdResponse getKakaoUserId(
             @RequestHeader("Authorization") String authorization
     );
 
     @PostExchange(KakaoOauthConstants.KAKAO_USER_INFO)
-    public KakaoInfoResponse getKakaoUserInfo(
+    KakaoInfoResponse getKakaoUserInfo(
             @RequestHeader("Authorization") String authorization
     );
 }

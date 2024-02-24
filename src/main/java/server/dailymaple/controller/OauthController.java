@@ -12,7 +12,7 @@ import server.dailymaple.service.OauthService;
 @Tag(name = "SignUp", description = "SignUp Api")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/signup")
+@RequestMapping("/oauth")
 public class OauthController{
 
     private final OauthService service;

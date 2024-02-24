@@ -12,7 +12,8 @@ public class KakaoAccessClientConfig {
     @Bean
     public KakaoAccessClient kakaoOpenApiClient(){
         WebClient webClient = WebClient.builder().build();
-        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(WebClientAdapter.create(webClient)).build();
+        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(WebClientAdapter.create(webClient))
+                .build();
         return factory.createClient(KakaoAccessClient.class);
     }
 
