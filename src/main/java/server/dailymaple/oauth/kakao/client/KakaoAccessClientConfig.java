@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.client.support.WebClientAdapter
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 @Configuration
-public class KakaoAccessProxyClient {
+public class KakaoAccessClientConfig {
     @Bean
     public static KakaoAccessClient kakaoOpenApiClient() {
         WebClient webClient = WebClient.builder().build();
