@@ -2,6 +2,7 @@ package server.dailymaple.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import server.dailymaple.constant.LoginType;
 import server.dailymaple.utils.BaseTimeEntity;
 
 @Getter
@@ -20,6 +21,8 @@ public class Member extends BaseTimeEntity {
     String accountId;
 
     String password;
+
+    LoginType type;
 
     boolean deleted;
 
