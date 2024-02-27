@@ -1,6 +1,12 @@
 spring:
   profiles:
     active: local
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client_id: ${CLIENT_ID}
 
 springdoc:
     swagger-ui:
