@@ -24,9 +24,10 @@ public class KakaoService {
     private String CLIENT_ID;
 
     @Transactional
-    public String login(KakaoTokenResponse req){
-        String userId = String.valueOf(getUserId(req).id());
-        return (repository.findByAccountId(userId)== null) ? signUp(req,userId) : userId;
+    public String login(KakaoTokenRequest req){
+        KakaoTokenResponse kakaoToken = getOauthToken(req);
+        String userId = String.valueOf(getUserId(kakaoToken).id());
+        return (repository.findByAccountId(userId)== null) ? signUp(kakaoToken,userId) : userId;
     }
 
     @Transactional
@@ -40,11 +41,11 @@ public class KakaoService {
         return repository.save(newMember).getAccountId();
     }
 
-    public KakaoTokenResponse getOauthToken(KakaoTokenRequest req){
+    private KakaoTokenResponse getOauthToken(KakaoTokenRequest req){
         return client.getKakaoAuthorizationCode(KakaoOauthConstant.GRANT_TYPE,CLIENT_ID,KakaoOauthConstant.REDIRECT_URL,req.code());
     }
 
-    public KakaoUserIdResponse getUserId(KakaoTokenResponse req){
+    private KakaoUserIdResponse getUserId(KakaoTokenResponse req){
         return client.getKakaoUserId("Bearer " + req.access_token());
     }
 
