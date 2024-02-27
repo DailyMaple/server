@@ -22,6 +22,7 @@ public class Member extends BaseTimeEntity {
 
     String password;
 
+    @Enumerated(value = EnumType.STRING)
     LoginType type;
 
     boolean deleted;
