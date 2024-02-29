@@ -9,6 +9,7 @@ spring:
       hibernate:
         show_sql: false
         format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: validate
     open-in-view: false
