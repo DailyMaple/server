@@ -16,7 +16,7 @@ public class Profile extends BaseTimeEntity {
     private Long id;
 
     @Column
-    private String profileIdentifier;
+    private String profileCharacterName;
 
     private boolean deleted;
 
