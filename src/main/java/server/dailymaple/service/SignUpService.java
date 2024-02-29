@@ -13,7 +13,7 @@ public class SignUpService {
     private final MemberRepository memberRepository;
 
     public Long signUp(MemberDto memberDto){
-        //ToDo 페스워드 암호화
+        //ToDo 페스워드 암호 화
         Member member = Member.createMember(memberDto.accountId(),memberDto.password());
         memberRepository.save(member);
         return member.getId();
