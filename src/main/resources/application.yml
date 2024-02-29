@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: {PROFILE}
+    active: ${PROFILE}
   security:
     oauth2:
       client:
